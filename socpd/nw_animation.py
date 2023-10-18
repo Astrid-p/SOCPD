@@ -4,11 +4,13 @@
 from socpd.visualization import animate
 import matplotlib
 import matplotlib.pyplot as plt
+import matplotlib.animation as mpbanimation
 import seaborn as sns
 import IPython
 import numpy as np
 
 import networkx as nx
+import moviepy.editor as mp
 
 matplotlib.rcParams['animation.embed_limit'] = 2**128
 
@@ -68,7 +70,11 @@ def generate_animation(model, p, ani_dict):
 
     plot_fargs = [g_name, s_name, labels,mod]
     animation = animate(model(p), fig, (ax1,ax2), combined, fargs = plot_fargs)
-    fig.tight_layout(pad = 4)
-   
+    animation.save("network_dyn.gif")
+    
+  
+    
     return IPython.display.HTML(animation.to_jshtml())
+#IPython.display.HTML(animation.to_jshtml())
+
 
