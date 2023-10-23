@@ -66,8 +66,10 @@ class SocPD(Model, Hypothesis):
         self.network = Network(self, graph)
         
             # Report network's attributes
-        degree_sequence = sorted((d for n, d in graph.degree()), reverse=True)
-        self.report("Max/Min nw-size", f"{max(degree_sequence)}, {min(degree_sequence)}")
+        degree_sequence = sorted((d for _, d in graph.degree()), reverse=True)
+        self.report("Max_nw_size", max(degree_sequence))
+        self.report("Min_nw_size", min(degree_sequence))
+        self.report("Average_nw_size", mean(degree_sequence) )
         
         
         #_______GENERATE AGENTS______________________
