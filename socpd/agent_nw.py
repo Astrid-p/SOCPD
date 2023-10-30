@@ -39,7 +39,7 @@ class Individual(Agent):
         self.influencing_profile : pd.DataFrame
         #self.influenced_score :  pd.Series
         #self.move_to_pos = None
-        self.share_similar_diet :float = .0
+        #self.share_similar_diet :float = .0
 
         #call-out attribute from hypothesis/model 
         self.env_beta = self.model._env_beta
