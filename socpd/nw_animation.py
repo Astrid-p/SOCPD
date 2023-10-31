@@ -10,6 +10,7 @@ import numpy as np
 
 import networkx as nx
 
+
 matplotlib.rcParams['animation.embed_limit'] = 2**128
 
 def model_stackplot(data, ax, labels):
@@ -68,7 +69,8 @@ def generate_animation(model, p, ani_dict):
 
     plot_fargs = [g_name, s_name, labels,mod]
     animation = animate(model(p), fig, (ax1,ax2), combined, fargs = plot_fargs)
-    fig.tight_layout(pad = 4)
+    
+    animation.save(f"result_{mod}.gif")
    
     return IPython.display.HTML(animation.to_jshtml())
 
