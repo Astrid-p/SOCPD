@@ -4,7 +4,6 @@ Content: Main class for agent-based models
 """
 #shared
 import numpy as np
-from math import log
 import networkx as nx
 
 #agentpy
@@ -35,13 +34,13 @@ class SocPD(Model, Hypothesis):
         
         # Private attributes_________________________________________________________________
             # status_quo, env_beta,use_ipf, pop, 
-        self.status_quo : float = .0
+        '''self.status_quo : float = .0
         if 'env_beta' in self.p:
             self._env_beta = float(self.p['env_beta'])
         else:
             self._env_beta = 0.0
         self.report("intervention's effect-env_beta", self._env_beta)
-
+        '''
             # Specifying use ipf
         #self._use_ipf : bool = None
         if 'use_ipf' in self.p:
@@ -92,10 +91,8 @@ class SocPD(Model, Hypothesis):
 
     def update(self): 
         positive_p = len(self.agents.select(self.agents.status==True))/self.pop
-        self.status_quo = log(positive_p/(1-positive_p))
-
-        # Stop simulation if all are positive or negative
-        if positive_p == 0 or positive_p == 1:
+                # Stop simulation if all are positive or negative
+        if positive_p <= 0.01 or positive_p >= 0.99:
             self.stop()
         #record status
         self['positive'] = positive_p

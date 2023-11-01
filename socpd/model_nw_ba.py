@@ -4,7 +4,6 @@ Content: Main class for agent-based models
 """
 #shared
 import numpy as np
-from math import log
 import networkx as nx
 
 #agentpy
@@ -35,13 +34,13 @@ class SocPD(Model, Hypothesis):
         
         # Private attributes_________________________________________________________________
             # status_quo, env_beta,use_ipf, pop, 
-        self.status_quo : float = .0
-        if 'env_beta' in self.p:
+        #self.status_quo : float = .0
+        '''if 'env_beta' in self.p:
             self._env_beta = float(self.p['env_beta'])
         else:
             self._env_beta = 0.0
         self.report("intervention's effect-env_beta", self._env_beta)
-
+        '''
             # Specifying use ipf
         #self._use_ipf : bool = None
         if 'use_ipf' in self.p:
@@ -86,6 +85,7 @@ class SocPD(Model, Hypothesis):
             # update agent's features and status step 0
         for i, a in enumerate(self.agents):
             a.features = _feature_iter[i]
+            
         self.agents.get_status_step0()
         
         #_______ADD AGENTS ON network_________________________
@@ -94,27 +94,30 @@ class SocPD(Model, Hypothesis):
 
     def update(self): 
         positive_p = len(self.agents.select(self.agents.status==True))/self.pop
-        self.status_quo = log(positive_p/(1-positive_p))
-
-        # Stop simulation if all are positive or negative
-        if positive_p == 0 or positive_p == 1:
+                # Stop simulation if all are positive or negative
+        if positive_p <= 0.01 or positive_p >= 0.99:
             self.stop()
+        
+        #self.status_quo = log(positive_p/(1-positive_p))
+
         #record status
         self['positive'] = positive_p
         self.record('positive')
         self['negative'] = 1 - self['positive']
         self.record('negative')
         
-        
         # update from t = 0 
         self.agents.update_influencing_profile_by_status()  
+        #self.agents.update_status_quo()
+        
         #if self.nw3D:
         self.agents.update_agent_combined()
         #self.unhappy = self.agents.select(self.agents.moving == True)
+        #self.unhappy.find_new_friends()
 
         
     def step(self) : 
-        #self.unhappy.find_new_friends()
+
         self.agents.change_agent_features_by_status()
         
     #def get_segregation(self):

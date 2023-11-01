@@ -28,12 +28,12 @@ class Individual(Agent):
         # linking with model #--> Agent
         
         self.random = self.model.random
-        self.status_quo = self.model.status_quo
+        #self.status_quo = self.model.status_quo
         # Network method
         self.network = self.model.network
         
         #local variable
-        self.status= False
+        self.status = False
         self.moving= False
         self.features = None
         self.influencing_profile : pd.DataFrame
@@ -42,7 +42,7 @@ class Individual(Agent):
         self.share_similar_diet :float = .0
 
         #call-out attribute from hypothesis/model 
-        self.env_beta = self.model._env_beta
+        #self.env_beta = self.model._env_beta
         self.status_var = self.model.status_var
   
             # Hypothesis's params:
@@ -67,14 +67,13 @@ class Individual(Agent):
     
     #_________________________________________________________________
     # SETUP agent's status at t = 0
-    def get_status_step0(self) -> None:
+    def get_status_step0(self):
         """
         Get agent status at t = 0 
         Returns: None -> change agents' status to True if status_var_yes = 1
         """
         fs = self.features
-        self.status = fs[f'{self.status_var}_yes'] ==1 
-
+        self.status = fs[f'{self.status_var}_yes'] == 1 
 
     #________________________________________________________________
     # Set influencing profile by statu
@@ -100,6 +99,7 @@ class Individual(Agent):
         # set agent's influencing profile
         self.influencing_profile = influencing_profile
     
+        
     def update_agent_combined(self):
         
         '''Finalize all score combination
@@ -107,15 +107,16 @@ class Individual(Agent):
             - update self.status'''
             
         """Get scores for all actions to self"""
-        
+        #status_quo = self.model.status_quo    
         _score_self = np.array(self.params_self).dot(np.array(self.features))
         _score_self_adopt = np.sum(_score_self)
-        _score_adopt = _score_self_adopt + self.env_beta + self.status_quo
+        _score_adopt = _score_self_adopt #+ self.env_beta + status_quo
         
         """ Get scores from neighbor by shared similarity"""
         ln = self.network.graph.degree(self.network.positions[self])
         if ln > 0: 
             neighbors = self.network.neighbors(self)
+
             # Update segregration ( p of neighbors with same status ______________________________________________________
             #similar = len([n for n in neighbors if n.status == self.status])
             #self.share_similar_diet = similar / ln    
@@ -125,7 +126,14 @@ class Individual(Agent):
             _neigh_scores = neigh_pfs.dot(np.array(self.features)) 
             _score_nw_adopt =  np.sum(_neigh_scores) 
             _score_adopt += _score_nw_adopt 
-    
+            
+            pos_n = len([n for n in neighbors if n.status == True])
+            
+            if pos_n == ln or pos_n ==0:
+                _score_adopt * ln
+            else:
+                _score_adopt += log(pos_n/(ln-pos_n))
+        
 
         """ UPDATE self.status """
         prob_adopt = self.get_p(_score_adopt)

@@ -30,7 +30,7 @@ def model_stackplot(data, ax, labels):
     ax.set_ylabel("Percentage of population")
 
 
-def network_graph(m, ax):
+def network_graph(m, ax, width):
     seed = m.reporters['seed']
     G = m.network.graph
     pos = nx.spring_layout(G, k = 0.2, seed=seed)
@@ -41,7 +41,7 @@ def network_graph(m, ax):
     "node_size": 25,
     "edge_color": "grey",
     "linewidths": 0,
-    "width": 0.1}
+    "width": width}
     nx.draw(G, pos, ax, **options)
 
 def combined(m, axs, *fargs ):
@@ -53,24 +53,47 @@ def combined(m, axs, *fargs ):
                   fontdict = {'fontsize': 18})
 
     #Network animation________________________________________________________ 
-    network_graph(m, ax1)
+    network_graph(m, ax1, fargs[3])
     #stackplot animation_______________________________________________________
-    model_stackplot(m.output.variables[fargs[3]], ax2, fargs[2])
+    model_stackplot(m.output.variables[fargs[4]], ax2, fargs[2])
         
 def generate_animation(model, p, ani_dict):
     g_name = ani_dict['graph_nw_name']
     s_name = ani_dict['stack_plot_name']
     labels = ani_dict['pos_neg_label_list']
+    width  = ani_dict['width']
     mod    = ani_dict['model_name']
+    o_name = ani_dict['output_name']
     
     fig = plt.figure(figsize=(18,12))
     ax1 = plt.subplot2grid((2, 3), (0, 0), colspan=2, rowspan=2)
     ax2 = plt.subplot2grid((2, 3), (0, 2))
 
-    plot_fargs = [g_name, s_name, labels,mod]
+    plot_fargs = [g_name, s_name, labels, width, mod]
     animation = animate(model(p), fig, (ax1,ax2), combined, fargs = plot_fargs)
+    plt.tight_layout(pad=4)
+    animation.save(f"result_{o_name}.gif")
     
-    animation.save(f"result_{mod}.gif")
    
     return IPython.display.HTML(animation.to_jshtml())
 
+def stack_ani(m, ax, *fargs ):
+    
+
+    ax.set_title(f"{fargs[0]}\n{fargs[1][0]} proportion at step {m.t}: {m.positive}", 
+                  fontdict = {'fontsize': 18})
+    
+    #stackplot animation_______________________________________________________
+    model_stackplot(m.output.variables[fargs[2]], ax, fargs[1])
+
+def generate_stack(model,p, ani_dict):
+    s_name = ani_dict['stack_plot_name']
+    labels = ani_dict['pos_neg_label_list']
+    mod    = ani_dict['model_name']
+    
+    fig, ax = plt.subplots()
+
+    plot_fargs = [s_name, labels, mod]
+    animation = animate(model(p), fig, ax, stack_ani, fargs = plot_fargs)
+     
+    return IPython.display.HTML(animation.to_jshtml())
