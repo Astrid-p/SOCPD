@@ -155,6 +155,7 @@ parameters_december
 parameters_demo
 parameters_test6Jan
 hypothesis_storage
+docs
 
 # file:
 parameters/ipf_weight_matrix.pickle
