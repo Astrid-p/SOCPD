@@ -165,9 +165,16 @@ socpd/individual_comma.py
 
 socpd/modelCM_2d.py
 socpd/modelCM_3Oct.py
+socpd/sample_nw.py
+socpd/agent_grid.py
+socpd/model_grid.py
+
 
 notebook/demo_modelCM_2d.ipynb
 notebook/demo_populating.ipynb
 notebook/demo_individual.ipynb
 notebook/drafting_code.ipynb
 notebook/testCM_agent-model.ipynb
+notebook/tutorial_nw copy.ipynb
+notebook/demo_individual-nw.ipynb
+notebook/tutorial_grid.ipynb

@@ -1,0 +1,196 @@
+{
+  "age_cat": [
+    [
+      "19-29",
+      "30-39",
+      "40-49",
+      "50-59",
+      "60-69",
+      "70+"
+    ],
+    [
+      0.0592,
+      0.1471,
+      0.2833,
+      0.287,
+      0.1526,
+      0.0708
+    ]
+  ],
+  "gender": [
+    [
+      "female",
+      "male"
+    ],
+    [
+      0.59,
+      0.41
+    ]
+  ],
+  "education": [
+    [
+      "low",
+      "middle",
+      "high"
+    ],
+    [
+      0.2918,
+      0.3698,
+      0.3384
+    ]
+  ],
+  "unemployed": [
+    [
+      "no",
+      "yes"
+    ],
+    [
+      0.9218,
+      0.0782
+    ]
+  ],
+  "child_presence": [
+    [
+      "no",
+      "yes"
+    ],
+    [
+      0.523,
+      0.477
+    ]
+  ],
+  "income": [
+    [
+      "under_median",
+      "over_median",
+      "unknown"
+    ],
+    [
+      0.3845,
+      0.431,
+      0.1845
+    ]
+  ],
+  "ethnicity": [
+    [
+      "white_eu",
+      "non_white"
+    ],
+    [
+      0.8823,
+      0.1177
+    ]
+  ],
+  "asoc_membership": [
+    [
+      "no",
+      "yes"
+    ],
+    [
+      0.9227,
+      0.0773
+    ]
+  ],
+  "health_stat": [
+    [
+      "excellent",
+      "very_good",
+      "good",
+      "mediocre",
+      "poor"
+    ],
+    [
+      0.0896,
+      0.2652,
+      0.531,
+      0.1075,
+      0.0067
+    ]
+  ],
+  "dietscore_quintiles": [
+    [
+      "first_quint",
+      "2nd",
+      "3rd",
+      "4th",
+      "fif_quint"
+    ],
+    [
+      0.1688,
+      0.2172,
+      0.192,
+      0.2202,
+      0.2018
+    ]
+  ],
+  "vege_family": [
+    [
+      "no",
+      "yes"
+    ],
+    [
+      0.9187,
+      0.0813
+    ]
+  ],
+  "vege_history": [
+    [
+      "no",
+      "yes"
+    ],
+    [
+      0.9547,
+      0.0453
+    ]
+  ],
+  "vegetarian": [
+    [
+      "no",
+      "yes"
+    ],
+    [
+      0.9512,
+      0.0488
+    ]
+  ],
+  "province": [
+    [
+      "drenthe",
+      "friesland",
+      "groningen",
+      "other"
+    ],
+    [
+      0.2706,
+      0.3939,
+      0.311,
+      0.0245
+    ]
+  ],
+  "urbanity": [
+    [
+      "very_urban",
+      "2nd",
+      "3rd",
+      "4th",
+      "very_rural"
+    ],
+    [
+      0.071,
+      0.1115,
+      0.1801,
+      0.2264,
+      0.411
+    ]
+  ],
+  "pct_socialhousing": [
+    [
+      "low_sshousing",
+      "high_sshousing"
+    ],
+    [
+      0.758,
+      0.242
+    ]
+  ]
+}
