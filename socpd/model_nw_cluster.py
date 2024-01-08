@@ -1,6 +1,6 @@
 """
-Agentpy Model Module
-Content: Main class for agent-based models
+VEGCON Model Module
+Content: Model implementation using BA network generation
 """
 #shared
 import numpy as np
@@ -12,7 +12,7 @@ from .network import Network
 from .sequences import AgentList
 
 #comma
-from .agent_nw import Individual, Populating
+from .agent_nw_ipf import Individual, Populating
 from .hypothesis_nw import Hypothesis
  
 

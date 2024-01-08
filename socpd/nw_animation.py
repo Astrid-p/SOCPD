@@ -72,7 +72,7 @@ def generate_animation(model, p, ani_dict):
     plot_fargs = [g_name, s_name, labels, width, mod]
     animation = animate(model(p), fig, (ax1,ax2), combined, fargs = plot_fargs)
     plt.tight_layout(pad=4)
-    animation.save(f"result_{o_name}.gif")
+    animation.save(f"{o_name}.gif")
     
    
     return IPython.display.HTML(animation.to_jshtml())
@@ -90,10 +90,10 @@ def generate_stack(model,p, ani_dict):
     s_name = ani_dict['stack_plot_name']
     labels = ani_dict['pos_neg_label_list']
     mod    = ani_dict['model_name']
-    
+    out_path = ani_dict["out_path"]
     fig, ax = plt.subplots()
 
     plot_fargs = [s_name, labels, mod]
     animation = animate(model(p), fig, ax, stack_ani, fargs = plot_fargs)
-     
+    animation.save(f"{out_path}.gif")
     return IPython.display.HTML(animation.to_jshtml())

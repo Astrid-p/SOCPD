@@ -6,7 +6,8 @@ import pandas as pd
 from typing import Dict, Set, List, Union
 
 PARAMS_INDIVIDUAL = 'params_individual.json'
-PARAMS_IPF_WEIGHTS = "ipf_weights.csv"
+PARAMS_IPF_WEIGHTS = "ipf_weight_matrix.pickle"
+PARAMS_IPF_KEYMAPS = "ipf_keymaps.pickle"
 
 
 
@@ -115,7 +116,7 @@ class Hypothesis:
 
         #structure the empty hypothesis params file
         feas = cls._get_one_hot_encoded_features(fpath_params_individual)  
-        feas = sorted([f.lower() for f in feas])
+        feas = [f.lower() for f in feas]
         columns = ['actions', 'baseline']
         columns += feas
         df = pd.DataFrame(0, index=range(len(all_possible_actions)), columns=columns)

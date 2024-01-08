@@ -1,6 +1,6 @@
 """
-Agentpy Agent Module
-Content: Agent Classes
+VEGCON - Agent Module
+Content: Agent behaviors
 
 """
 
@@ -16,7 +16,8 @@ from math import exp, log
 from typing import List, Tuple
 from tqdm import tqdm
 
-from .objects import Object
+
+from .objects import Object 
 from .agent import Agent
 
 from .hypothesis_nw import PARAMS_INDIVIDUAL, \
@@ -28,41 +29,38 @@ class Individual(Agent):
         # linking with model #--> Agent
         
         self.random = self.model.random
-        #self.status_quo = self.model.status_quo
-        # Network method
+      
+        # Network method 
         self.network = self.model.network
         
-        #local variable
+        #local variable - agent's attribute
         self.status = False
         self.moving= False
         self.features = None
         self.influencing_profile : pd.DataFrame
-        #self.influenced_score :  pd.Series
+        #self.influenced_score :  pd.Series # model feature - removed
         #self.move_to_pos = None
-        self.share_similar_diet :float = .0
+        #self.share_similar_diet :float = .0 # model feature - removed  
 
         #call-out attribute from hypothesis/model 
-        #self.env_beta = self.model._env_beta
-        self.status_var = self.model.status_var
-  
+        #self.env_beta = self.model._env_beta # model feature - removed 
+        
             # Hypothesis's params:
+        self.status_var = self.model.status_var 
         self.params_self  = self.model.rules['actions_to_self']
         self.params_nw = self.model.rules['actions_to_nw']
             # for masking actions
         homo_neg  = self.model.homo_neg # neg_nw_actions
         homo_pos = self.model.homo_pos # pos_nw_actions
-        
-        
-        #____________________ to Network _______________________
-        
-        # to update influencing_profile by agent's status
+
+            # to update influencing_profile by agent's status
         self.masked_neg = np.isin(self.params_nw.index, homo_neg)
         self.masked_pos = np.isin(self.params_nw.index, homo_pos)
 
 
     @staticmethod
     def get_p(sum_betas:float):
-        '''logit reversed'''
+        '''inversed logit function'''
         return exp(sum_betas)/(1+exp(sum_betas))
     
     #_________________________________________________________________
@@ -70,16 +68,15 @@ class Individual(Agent):
     def get_status_step0(self):
         """
         Get agent status at t = 0 
-        Returns: None -> change agents' status to True if status_var_yes = 1
+        Returns: None -> change agents' status at t = 0 to True if status_var_yes = 1
         """
         fs = self.features
         self.status = fs[f'{self.status_var}_yes'] == 1 
 
-    #________________________________________________________________
-    # Set influencing profile by statu
+
     def update_influencing_profile_by_status(self):
-        '''Set feature-customized influencing-profile of each agents     
-        Required: 
+        '''Set feature-customized influencing-profile (to score influence through interaction)
+        Input: 
             Hypothesis rules (param_nw)
             updated status (from t0)
             features
@@ -90,61 +87,81 @@ class Individual(Agent):
         params_nw = np.array(self.params_nw)
         features = np.array(self.features)
         influencing_profile = np.multiply(params_nw,features)
+        
         # zero-out the influence doesn't match agent's status
         if self.status:
             influencing_profile[self.masked_neg,:] = 0.0
         else:
             influencing_profile[self.masked_pos,:] = 0.0
 
-        # set agent's influencing profile
+        # update agent's influencing profile
         self.influencing_profile = influencing_profile
     
         
     def update_agent_combined(self):
         
-        '''Finalize all score combination
-            - update segregration
-            - update self.status'''
+        '''Achieve influenced score from self-influencing profile (self-influence) and connection's influencing profiles (network-influence)
+        Return:None
+            Updating agent's status'''
             
-        """Get scores for all actions to self"""
+        """
+        Step 1:
+        Acquire self-score from all self-influence effect assumption (Stochastic process)
+        - Get self-influence profile 
+        - Sum beta
+        """
         #status_quo = self.model.status_quo    
-        _score_self = np.array(self.params_self).dot(np.array(self.features))
-        _score_self_adopt = np.sum(_score_self)
-        _score_adopt = _score_self_adopt #+ self.env_beta + status_quo
+        _score_self = np.array(self.params_self).dot(np.array(self.features)) # matching hypothesis for self-influence with agent's profile (stochastic process)
+        _score_self_adopt = np.sum(_score_self) # acquire self-influence score (sum beta)
+        _score_adopt = _score_self_adopt # set variable for final score
+        #+ self.env_beta + status_quo --> removed model features
         
-        """ Get scores from neighbor by shared similarity"""
-        ln = self.network.graph.degree(self.network.positions[self])
+        """ 
+        Step 2:
+        Acquire network-influenced score from agent's connections from connections' influencing profiles - (rule-based interaction process - homophily)
+        - Collect connections' influencing profiles if there are any
+        - Achieve cross-profile similarity fromm each connection profiles
+        - Sum beta - get final score for both self-influence and network influence
+        """
+        
+        ln = self.network.graph.degree(self.network.positions[self]) 
         if ln > 0: 
             neighbors = self.network.neighbors(self)
-
+            
+            # REMOVED MODEL FEATURES 
             # Update segregration ( p of neighbors with same status ______________________________________________________
             #similar = len([n for n in neighbors if n.status == self.status])
             #self.share_similar_diet = similar / ln    
             # Get scores from neighbor' actions ________________________________________________________
-                # get sum scores of influence from neighbors by homophily
-            neigh_pfs = np.array([n.influencing_profile for n in neighbors])
-            _neigh_scores = neigh_pfs.dot(np.array(self.features)) 
-            _score_nw_adopt =  np.sum(_neigh_scores) 
-            _score_adopt += _score_nw_adopt 
+
             
-            pos_n = len([n for n in neighbors if n.status == True])
+            neigh_pfs = np.array([n.influencing_profile for n in neighbors]) #get connections' influencing-profiles
+            _neigh_scores = neigh_pfs.dot(np.array(self.features)) # achieve similarities between the agent and each of its connections' influencing-profiles
+            _score_nw_adopt =  np.sum(_neigh_scores) # sum score (beta)
+            _score_adopt += _score_nw_adopt # Finalize score, sum self-influence and network-influence score 
             
-            if pos_n == ln or pos_n ==0:
+            # Adding norm effect 
+            pos_n = len([n for n in neighbors if n.status == True]) # check status of all connection 
+            
+            if pos_n == ln or pos_n ==0: # if all connections has the same status -> the final score get more weights
                 _score_adopt * ln
             else:
                 _score_adopt += log(pos_n/(ln-pos_n))
         
 
         """ UPDATE self.status """
-        prob_adopt = self.get_p(_score_adopt)
-        self.status = self.random.random() <= prob_adopt
+        # get probability of adoption from score -> change status of agent
+        prob_adopt = self.get_p(_score_adopt) 
+        self.status = self.random.random() <= prob_adopt 
     
 
-    '''STEP 4 : taking action following  moving and status'''
+    ''' #REMOVED FEATURES# STEP 4 : taking action following  moving and status'''
     #def find_new_friends(self):
     #    self.grid.move_to(self, self.move_to_pos)
         
     def change_agent_features_by_status(self):
+        '''change Agent's profile following the new status 
+        (change the feature that define the agent's status)'''
         if self.status:
             self.features[self.features.index.str.contains(pat = f'{self.status_var}')] = [0,1]
         else:
