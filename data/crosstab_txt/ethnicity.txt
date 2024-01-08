@@ -1,0 +1,70 @@
+asoc_membership							
+ethnicity	no	yes	Total				
+							
+white_eu	81359	7122	88481				
+non_white	11171	633	11804				
+							
+Total	92530	7755	100285				
+							
+;							
+health_stat							
+ethnicity	excellent	very_good	good	mediocre	poor		
+							
+white_eu	8123	24016	46769	8924	505		
+non_white	843	2523	6373	1843	169		
+							
+							
+;							
+dietscore_quintiles							
+ethnicity	first_quint	2nd	3rd	4th	fif_quint		Total
+							
+white_eu	12718	16825	15049	17442	16140		88481
+non_white	1879	1953	1553	1594	1295		11804
+							
+							
+Total	14597	18778	16602	19036	17435		100285
+;							
+vege_family							
+ethnicity	no	yes	Total				
+							
+white_eu	80983	7498	88481				
+non_white	11150	654	11804				
+							
+							
+Total	92133	8152	100285				
+							
+;							
+vege_history							
+ethnicity	no	yes					
+							
+white_eu	84491	3990					
+non_white	2428	131					
+;							
+vegetarian							
+ethnicity	no	yes	Total				
+							
+white_eu	84132	4349	88481				
+non_white	11259	545	11804				
+Total	95391	4894	100285				
+							
+;							
+province							
+ethnicity	Drenthe	Friesland	Groningen	Other	Total		
+							
+white_eu	23846	35224	27193	2218	88481		
+non_white	3291	4274	3997	242	11804		
+Total	27137	39498	31190	2460	100285		
+							
+;							
+urbanity							
+ethnicity	very_urban	2nd	3rd	4th	very_rural	Total	
+							
+white_eu	6011	9610	15767	20214	36879	88481	
+non_white	1105	1573	2291	2493	4342	11804	
+Total	7116	11183	18058	22707	41221	100285	
+;							
+pct_socialhousing							
+ethnicity	low_sshousing	high_sshousing					
+							
+white_eu	66931	20703					
+non_white	8152	3569					

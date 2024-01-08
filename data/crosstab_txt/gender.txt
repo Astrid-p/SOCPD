@@ -1,0 +1,118 @@
+education							
+							
+gender	low	middle	high		Total		
+							
+FEMALE	17147	22266	18846		59169		
+MALE	11710	14314	14617		41116		
+							
+Total	28857	36580	33463		100285		
+;							
+unemployed							
+gender	No	Yes	Total				
+							
+FEMALE	54384	4785	59169				
+MALE	38062	3054	41116				
+							
+Total	92446	7839	100285				
+;							
+Child_presence							
+gender	no	yes					
+FEMALE	30717	28452					
+MALE	21737	19379					
+							
+Total	52454	47831					
+							
+;							
+income							
+							
+gender	under_median	over_median	unknown	Total			
+							
+FEMALE	23502	23608	12059	59169			
+MALE	15058	19617	6441	41116			
+							
+Total	38560	43225	18500	100285			
+							
+;							
+ethnicity							
+gender	white_eu	non_white			Total		
+							
+FEMALE	52304	6865			59169		
+MALE	36177	4939			41116		
+							
+							
+;							
+asoc_membership							
+gender	No	Yes					
+FEMALE	54632	4537					
+MALE	37898	3218					
+							
+Total	92530	7755					
+;							
+health_stat							
+gender	excellent	very_good	good	mediocre	poor		Total
+							
+FEMALE	4628	14736	32188	7064	441		59169
+MALE	4338	11803	20954	3703	233		41116
+							
+Total	8966	26539	53142	10767	674		100285
+;							
+dietscore_quintiles							
+							
+gender	first_quint	2nd	3rd	4th	fif_quint		Total
+							
+FEMALE	6747	9740	9548	12095	12892		59169
+MALE	7850	9038	7054	6941	4543		41116
+							
+Total	14597	18778	16602	19036	17435		100285
+;							
+vege_family							
+gender	no	yes	total				
+							
+FEMALE	54654	4515	59169				
+MALE	37479	3637	41116				
+							
+Total	92133	8152	100285				
+;							
+vege_history							
+gender	no	yes					
+FEMALE	50852	3202					
+MALE	36067	919					
+							
+Total	86919	4121					
+							
+;							
+vegetarian							
+							
+							
+gender	No	Yes	Total				
+							
+FEMALE	55396	3773	59169				
+MALE	39995	1121	41116				
+							
+Total	95391	4894	100285				
+;							
+province							
+							
+gender	Drenthe	Friesland	Groningen	Other	Total		
+							
+FEMALE	16100	23340	18243	1486	59169		
+MALE	11037	16158	12947	974	41116		
+							
+Total	27137	39498	31190	2460	100285		
+;							
+urbanity							
+							
+gender	very_urban	2nd	3rd	4th	very_rural		
+							
+FEMALE	4275	6700	10726	13329	24139		
+MALE	2841	4483	7332	9378	17082		
+							
+Total	7116	11183	18058	22707	41221		
+;							
+pct_socialhousing							
+gender	low_sshousing	high_sshousing		Total			
+							
+FEMALE	44163	14479		59169			
+MALE	30920	9793		41116			
+							
+Total	75083	24272		100285			

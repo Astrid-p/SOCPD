@@ -1,0 +1,71 @@
+health_stat							
+							
+asoc_membership	excellent	very_good	good	mediocre	poor		Total
+							
+No	8259	24387	49059	10007	636		92530
+Yes	707	2152	4083	760	38		7755
+							
+Total	8966	26539	53142	10767	674		100285
+;							
+							
+							
+							
+							
+							
+							
+							
+vege_family							
+asoc_membership	no	yes	Total				
+							
+no	84931	7599	92530				
+yes	7202	553	7755				
+							
+Total	92133	8152	100285				
+							
+							
+							
+;							
+vege_history							
+							
+asoc_membership	no	yes		Total			
+							
+No	79886	3872		92530			
+Yes	7033	249		7755			
+							
+Total	86919	4121		100285			
+							
+							
+;							
+vegetarian							
+asoc_membership	No	Yes					
+No	87914	4616					
+Yes	7477	278					
+							
+Total	95391	4894					
+							
+;							
+province							
+asoc_membership	Drenthe	Friesland	Groningen	Other	Total		
+							
+No	27106	34453	28563	2408	92530		
+Yes	31	5045	2627	52	7755		
+							
+Total	27137	39498	31190	2460	100285		
+							
+;							
+urbanity							
+asoc_membership	very_urban	2nd	3rd	4th	very_rural	Total	
+							
+No	7038	9585	16691	21105	38111	92530	
+Yes	78	1598	1367	1602	3110	7755	
+							
+Total	7116	11183	18058	22707	41221	100285	
+							
+;							
+pct_socialhousing							
+asoc_membership	low_sshousing	high_sshousing		Total			
+							
+No	69434	22352		92530			
+Yes	5649	1920		7755			
+							
+Total	75083	24272		100285			

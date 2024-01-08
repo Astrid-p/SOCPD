@@ -1,0 +1,41 @@
+vege_history						
+vege_family	no	yes		Total		
+						
+no	80137	3271		92133		
+yes	6782	850		8152		
+						
+Total	86919	4121		100285		
+						
+;						
+vegetarian						
+vege_family	no	yes	Total			
+						
+no	88129	4004	92133			
+yes	7262	890	8152			
+						
+Total	95391	4894	100285			
+;						
+province						
+vege_family	Drenthe	Friesland	Groningen	Other	Total	
+						
+no	25176	35838	28936	2183	92133	
+yes	1961	3660	2254	277	8152	
+						
+Total	27137	39498	31190	2460	100285	
+						
+;						
+urbanity						
+vege_family	very_urban	2nd	3rd	4th	very_rural	Total
+						
+no	6535	10227	16680	20929	37762	92133
+yes	581	956	1378	1778	3459	8152
+						
+Total	7116	11183	18058	22707	41221	100285
+;						
+pct_socialhousing						
+vege_family	low_sshousing	high_sshousing		Total		
+						
+no	68903	22420		92133		
+yes	6180	1852		8152		
+						
+Total	75083	24272		100285		

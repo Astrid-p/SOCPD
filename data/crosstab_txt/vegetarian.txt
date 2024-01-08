@@ -1,0 +1,24 @@
+province						
+						
+vegetarian	Drenthe	Friesland	Groningen	Other	Total	
+						
+no	25933	37740	29455	2263	95391	
+yes	1204	1758	1735	197	4894	
+						
+Total	27137	39498	31190	2460	100285	
+;						
+urbanity						
+vegetarian	very_urban	2nd	3rd	4th	very_rural	Total
+						
+no	6287	10512	17227	21814	39551	95391
+yes	829	671	831	893	1670	4894
+						
+Total	7116	11183	18058	22707	41221	100285
+;						
+pct_socialhousing						
+vegetarian	low_sshousing	high_sshousing		Total		
+						
+no	71482	23026		95391		
+yes	3601	1246		4894		
+						
+Total	75083	24272		100285		

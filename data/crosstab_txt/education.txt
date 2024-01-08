@@ -1,0 +1,143 @@
+unemployed							
+education	No	Yes	Total				
+							
+low	25848	3009	28857				
+middle	33736	2844	36580				
+high	31597	1866	33463				
+							
+							
+Total	92446	7839	100285				
+;							
+Child_presence							
+							
+education	No	Yes	Total				
+							
+low	18684	10173	28857				
+middle	16515	20065	36580				
+high	16303	17160	33463				
+							
+							
+Total	52454	47831	100285				
+							
+;							
+income							
+							
+education	under_median	over_median	unknown	Total			
+							
+low	13787	7483	7587	28857			
+middle	14514	15453	6613	36580			
+high	9712	19876	3875	33463			
+							
+							
+Total	38560	43225	18500	100285			
+							
+							
+;							
+ethnicity							
+education	white_eu	non_white		Total			
+							
+low	24784	4073		28857			
+middle	32476	4104		36580			
+high	30157	3306		33463			
+							
+							
+Total	88481	1572		100285			
+							
+;							
+asoc_membership							
+							
+education	No	Yes	Total				
+							
+low	26925	1932	28857				
+middle	33473	3107	36580				
+high	30837	2626	33463				
+							
+							
+Total	92530	7755	100285				
+							
+;							
+health_stat							
+							
+							
+education	excellent	very_good	good	mediocre	poor		Total
+							
+low	1817	5547	16989	4124	301		28857
+middle	2916	9673	19933	3763	240		36580
+high	4124	11074	15469	2636	121		33463
+							
+							
+Total	8966	26539	53142	10767	674		100285
+							
+;							
+dietscore_quintiles							
+education	first_quint	2nd	3rd	4th	fif_quint		total
+							
+low	4203	5293	4620	5320	4822		28857
+middle	6216	7341	6052	6555	5399		36580
+high	4005	5946	5721	6893	6961		33463
+							
+							
+Total	14597	18778	16602	19036	17435		100285
+							
+;							
+vege_family							
+education	no	yes	total				
+							
+low	26609	2248	28857				
+middle	33920	2660	36580				
+high	30330	3133	33463				
+							
+Total	92133	8152	100285				
+;							
+vege_history							
+education	no	yes		total			
+low	25047	722		28857			
+middle	32154	1146		36580			
+high	28616	2202		33463			
+							
+							
+Total	86919	4121		100285			
+							
+;							
+vegetarian							
+education	No	yes	Total				
+							
+low	27948	909	28857				
+middle	35218	1362	36580				
+high	30913	2550	33463				
+							
+							
+Total	95391	4894	100285				
+							
+;							
+province							
+education	Drenthe	Friesland	Groningen	Other	Total		
+							
+low	8015	11593	8754	495	28857		
+middle	10307	14756	10795	722	36580		
+high	8410	12603	11237	1213	33463		
+							
+							
+Total	27137	39498	31190	2460	100285		
+							
+;							
+urbanity							
+education	very_urban	2nd	3rd	4th	very_rural	Total	
+							
+low	1001	3308	5200	6497	12851	28857	
+middle	1691	3731	6639	8404	16115	36580	
+high	4344	3970	5949	7519	11681	33463	
+							
+							
+Total	7116	11183	18058	22707	41221	100285	
+							
+;							
+pct_socialhousing							
+education	low_sshousing	high_sshousing		Total			
+							
+low	20277	8352		28857			
+middle	27498	8727		36580			
+high	26313	6819		33463			
+							
+							
+Total	75083	24272		100285			

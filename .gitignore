@@ -148,12 +148,16 @@ dmypy.json
 .prof
 
 # socpd
+# folders
 try
-parameters
+parameters_12DEC
+parameters_december
+parameters_demo
+parameters_test6Jan
 hypothesis_storage
 
-parameters_demo/agent_behaviors_on_vegetarian0.csv
-parameters_demo/agent_behaviors_on_vegetarian-original.csv
+# file:
+parameters/ipf_weight_matrix.pickle
 
 socpd/agentCM_original_3Oct.py
 socpd/agentCMcube.py
@@ -168,13 +172,16 @@ socpd/modelCM_3Oct.py
 socpd/sample_nw.py
 socpd/agent_grid.py
 socpd/model_grid.py
+socpd/hypothesis.py
 
 
+notebook/demo_individual.ipynb
 notebook/demo_modelCM_2d.ipynb
 notebook/demo_populating.ipynb
-notebook/demo_individual.ipynb
 notebook/drafting_code.ipynb
+notebook/test_individual.ipynb
 notebook/testCM_agent-model.ipynb
-notebook/tutorial_nw copy.ipynb
-notebook/demo_individual-nw.ipynb
 notebook/tutorial_grid.ipynb
+
+
+

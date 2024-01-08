@@ -1,0 +1,99 @@
+income							
+Child_presence	under_median	over_median	unknown	Total			
+							
+No	24104	18147	10203	52454			
+Yes	14456	25078	8297	47831			
+							
+Total	38560	43225	18500	100285			
+							
+;							
+ethnicity							
+Child_presence	white_eu	non_white		Total			
+							
+no	46438	6016		52454			
+yes	42043	5788		47831			
+							
+Total	88481	11804		100285			
+							
+;							
+asoc_membership							
+Child_presence	No	Yes	Total				
+							
+No	49509	2945	52454				
+Yes	43021	4810	47831				
+							
+Total	92530	7755	100285				
+							
+							
+;							
+health_stat							
+							
+Child_presence	excellent	very_good	good	mediocre	poor		Total
+							
+No	4514	13276	28046	6073	422		52454
+Yes	4452	13263	25096	4694	252		47831
+							
+Total	8966	26539	53142	10767	674		100285
+							
+;							
+dietscore_quintiles							
+							
+Child_presence	first_quint	2nd	3rd	4th	fif_quint		Total
+							
+No	7023	8952	8320	10574	11051		52454
+Yes	7574	9826	8282	8462	6384		47831
+							
+Total	14597	18778	16602	19036	17435		100285
+;							
+vege_family							
+Child_presence	No	yes	Total				
+							
+no	47630	4824	52454				
+yes	44503	3328	47831				
+							
+Total	92133	8152	100285				
+							
+;							
+vege_history							
+Child_presence	no	yes		Total			
+							
+No	44960	2785		52454			
+Yes	41959	1336		47831			
+							
+Total	86919	4121		100285			
+							
+;							
+vegetarian							
+Child_presence	No	Yes	Total				
+							
+No	49146	3308	52454				
+Yes	46245	1586	47831				
+							
+Total	95391	4894	100285				
+							
+;							
+province							
+Child_presence	Drenthe	Friesland	Groningen	Other		Total	
+							
+No	13840	19492	17397	1725		52454	
+Yes	13297	20006	13793	735		47831	
+							
+Total	27137	39498	31190	2460		100285	
+							
+;							
+urbanity							
+Child_presence	very_urban	2nd	3rd	4th	very_rural	Total	
+							
+no	5253	6741	9591	10947	19922	52454	
+yes	1863	4442	8467	11760	21299	47831	
+							
+Total	7116	11183	18058	22707	41221	100285	
+							
+;							
+pct_socialhousing							
+Child_presence	low_sshousing	high_sshousing		Total			
+							
+No	37870	14140		52454			
+Yes	37213	10132		47831			
+							
+Total	75083	24272		100285			

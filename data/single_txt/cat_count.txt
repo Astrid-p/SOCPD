@@ -1,0 +1,122 @@
+age_cat	Freq.
+	
+19-29	5936
+30-39	14754
+40-49	28412
+50-59	28780
+60-69	15303
+70+	7100
+	
+;	
+	
+gender	Freq.
+	
+FEMALE	59169
+MALE	41116
+	
+;	
+	
+education	Freq.
+	
+low	28857
+middle	36580
+high	33463
+	
+;	
+	
+unemployed	Freq.
+	
+No	92446
+Yes	7839
+	
+;	
+	
+	
+Child_presence	Freq.
+	
+No	52454
+Yes	47831
+	
+;	
+	
+income	Freq.
+	
+under_median	38560
+over_median	43225
+unknown	18500
+	
+;	
+	
+	
+ethnicity	Freq.
+	
+white_eu	88481
+non_white	11804
+	
+;	
+	
+asoc_membership	Freq.
+	
+No	92530
+Yes	7755
+	
+;	
+health_stat	Freq.
+	
+excellent	8966
+very_good	26539
+good	53142
+mediocre	10767
+poor	674
+	
+;	
+	
+dietscore_quintiles	Freq.
+	
+first_quint	14597
+2nd	18778
+3rd	16602
+4th	19036
+fif_quint	17435
+	
+;	
+vege_family	Freq.
+	
+no	92133
+yes	8152
+	
+;	
+	
+vege_history	Freq.
+	
+no	86919
+yes	4121
+	
+;	
+vegetarian	Freq.
+	
+No	95391
+Yes	4894
+;	
+province	Freq.
+	
+Drenthe	27137
+Friesland	39498
+Groningen	31190
+Other	2460
+;	
+	
+urbanity	Freq.
+	
+very_urban	7116
+2nd	11183
+3rd	18058
+4th	22707
+very_rural	41221
+	
+;	
+	
+pct_socialhousing	Freq.
+	
+low_sshousing	75083
+high_sshousing	24272
