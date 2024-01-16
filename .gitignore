@@ -158,7 +158,10 @@ parameters_demo00
 parameters_test6Jan
 hypothesis_storage
 docs
-data
+data/crosstab_txt
+data/single_txt
+data/cleaned_crosstab.xlsx
+data/single_variable.xlsx
 
 
 # file:
