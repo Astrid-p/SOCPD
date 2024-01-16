@@ -158,6 +158,8 @@ parameters_demo00
 parameters_test6Jan
 hypothesis_storage
 docs
+data
+
 
 # file:
 parameters/ipf_weight_matrix.pickle
