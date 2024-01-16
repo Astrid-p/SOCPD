@@ -1,9 +1,0 @@
-pct_socialhousing		
-		
-urbanity	low_sshousing	high_sshousing
-		
-very_urban	4233	2883
-2nd	4872	6311
-3rd	11430	6626
-4th	19454	3233
-very_rural	35094	5219
